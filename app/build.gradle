@@ -24,6 +24,10 @@ android {
 }
 
 dependencies {
+    final ROOM_VERSION = '1.1.1'
+    final RETROFIT_VERSION = '2.4.0'
+    final ARCHITECTURE_COMPONENT_VERSION = '1.1.1'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -32,4 +36,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Room SQLite for data persistence
+    implementation "android.arch.persistence.room:runtime:$ROOM_VERSION"
+    annotationProcessor "android.arch.persistence.room:compiler:$ROOM_VERSION"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
+    // Android Architecture Components
+    implementation "android.arch.lifecycle:extensions:$ARCHITECTURE_COMPONENT_VERSION"
+    annotationProcessor "android.arch.lifecycle:compiler:$ARCHITECTURE_COMPONENT_VERSION"
 }
