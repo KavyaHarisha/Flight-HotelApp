@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -21,12 +23,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {
     final ROOM_VERSION = '1.1.1'
     final RETROFIT_VERSION = '2.4.0'
     final ARCHITECTURE_COMPONENT_VERSION = '1.1.1'
+    final DAGGER_VERSION = '2.24'
+    final DAGGER_COMPILER_VERSION = "2.16"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -52,4 +60,13 @@ dependencies {
     // Android Architecture Components
     implementation "android.arch.lifecycle:extensions:$ARCHITECTURE_COMPONENT_VERSION"
     annotationProcessor "android.arch.lifecycle:compiler:$ARCHITECTURE_COMPONENT_VERSION"
+    implementation "android.arch.lifecycle:reactivestreams:$ARCHITECTURE_COMPONENT_VERSION"
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$DAGGER_COMPILER_VERSION"
+    implementation "com.google.dagger:dagger-android:$DAGGER_COMPILER_VERSION"
+    implementation "com.google.dagger:dagger-android-support:$DAGGER_COMPILER_VERSION"
+    kapt "com.google.dagger:dagger-compiler:$DAGGER_COMPILER_VERSION"
+    kapt "com.google.dagger:dagger-android-processor:$DAGGER_COMPILER_VERSION"
+
 }
