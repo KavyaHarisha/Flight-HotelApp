@@ -1,6 +1,7 @@
 package com.flighthotelapplication.di.module
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.flighthotelapplication.data.local.FlightOrHotelDatabase
 import com.flighthotelapplication.data.local.dao.FlightDao
@@ -22,6 +23,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 class AppModule {
+
+    @Provides
+    @AppScope
+    fun provideContext(application: Application): Context {
+        return application
+    }
 
     @Provides
     @Singleton

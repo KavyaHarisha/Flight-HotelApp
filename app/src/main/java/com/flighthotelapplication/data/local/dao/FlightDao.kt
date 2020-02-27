@@ -13,5 +13,5 @@ interface FlightDao {
     fun loadFlights(): LiveData<List<FlightEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveFlightsList(flightList : List<FlightEntity>)
+    fun saveFlightsList(flightList : List<FlightEntity>?)
 }
