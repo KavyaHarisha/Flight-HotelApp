@@ -16,7 +16,6 @@ import java.util.List;
 final class ListBindingAdapter {
 
     private ListBindingAdapter(){
-        // Private Constructor to hide the implicit one
     }
 
     @SuppressWarnings("unchecked")
@@ -36,12 +35,12 @@ final class ListBindingAdapter {
     }
 
     @BindingAdapter(value = "convertDate")
-    public static void setDate(TextView textView,String date){
+    static void setDate(TextView textView, String date){
         textView.setText(FragmentUtils.INSTANCE.convertDateString(date));
     }
 
     @BindingAdapter(value = "timeDifference")
-    public static void setDifferenceTime(TextView textView, FlightEntity entity){
+    static void setDifferenceTime(TextView textView, FlightEntity entity){
         FragmentUtils utils = FragmentUtils.INSTANCE;
         textView.setText(utils.timeDifference(utils.convertDateString(entity.getDepartureDate()),
                 utils.convertDateString(entity.getArrivalDate())));
