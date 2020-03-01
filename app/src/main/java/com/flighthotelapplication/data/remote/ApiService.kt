@@ -6,9 +6,9 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("f0Tm6bfy")
+    @GET("bFnZQEx0")
     fun loadFlights(): Call<FlightsResponse>
 
-    @GET("bFnZQEx0")
+    @GET("f0Tm6bfy")
     fun loadHotels(): Call<HotelEntity>
 }

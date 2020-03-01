@@ -1,28 +1,37 @@
 package com.flighthotelapplication.data.local.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
-import com.google.gson.annotations.Expose
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "FlightsData")
-class FlightEntity {
+open class FlightEntity {
 
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+
+    @ColumnInfo(name = "airline")
     @SerializedName("airline")
-    @Expose
-    private val airline: String? = null
+    var airline: String? = null
+
+    @ColumnInfo(name = "departure_date")
     @SerializedName("departure_date")
-    @Expose
-    private val departureDate: String? = null
+    var departureDate: String? = null
+
+    @ColumnInfo(name = "arrival_date")
     @SerializedName("arrival_date")
-    @Expose
-    private val arrivalDate: String? = null
+    var arrivalDate: String? = null
+
+    @ColumnInfo(name = "price")
     @SerializedName("price")
-    @Expose
-    private val price: Int? = null
+    var price: Int? = null
+
+    @ColumnInfo(name = "departure_airport")
     @SerializedName("departure_airport")
-    @Expose
-    private val departureAirport: String? = null
+    var departureAirport: String? = null
+
+    @ColumnInfo(name = "arrival_airport")
     @SerializedName("arrival_airport")
-    @Expose
-    private val arrivalAirport: String? = null
+    var arrivalAirport: String? = null
 }

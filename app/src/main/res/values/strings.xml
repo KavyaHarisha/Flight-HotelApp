@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FlightHotelApplication</string>
+    <string name="title_flight">Flights</string>
+    <string name="title_hotel">Hotels</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

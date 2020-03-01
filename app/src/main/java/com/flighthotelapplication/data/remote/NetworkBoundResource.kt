@@ -2,12 +2,12 @@ package com.flighthotelapplication.data.remote
 
 
 import android.annotation.SuppressLint
-import android.os.AsyncTask
 import androidx.annotation.MainThread
 import androidx.annotation.NonNull
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
+import com.flighthotelapplication.utils.ThreadUtils
 import com.google.gson.stream.MalformedJsonException
 import retrofit2.Call
 import retrofit2.Callback
@@ -90,20 +90,11 @@ protected constructor() {
     @SuppressLint("StaticFieldLeak")
     @MainThread
     private fun saveResultAndReInit(response: V?) {
-        object : AsyncTask<Void, Void, Void>() {
-
-            override fun doInBackground(vararg voids: Void): Void? {
-                saveCallResult(response)
-                return null
-            }
-
-            override fun onPostExecute(aVoid: Void) {
-                result.addSource(loadFromDb()) { newData ->
-                    if (null != newData)
-                        result.value = Resource.success(newData)
-                }
-            }
-        }.execute()
+        ThreadUtils.runOnBackgroundThread(Runnable {saveCallResult(response)
+        ThreadUtils.runOnMainThread(Runnable { result.addSource(loadFromDb()) { newData ->
+            if (null != newData)
+                result.value = Resource.success(newData)
+        } })})
     }
 
     @WorkerThread

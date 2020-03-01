@@ -16,7 +16,8 @@ class FlightRepository @Inject constructor(private var flightDao:FlightDao,
     fun loadFlights():LiveData<Resource<List<FlightEntity>>>{
         return object : NetworkBoundResource<List<FlightEntity>,FlightsResponse>(){
             override fun saveCallResult(item: FlightsResponse?) {
-                if (null != item) flightDao.saveFlightsList(item.flights)
+                flightDao.deleteAllData()
+                 if (null != item) flightDao.saveFlightsList(item.flights)
             }
 
             override fun loadFromDb(): LiveData<List<FlightEntity>> {
