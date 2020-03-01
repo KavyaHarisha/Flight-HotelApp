@@ -35,12 +35,12 @@ final class ListBindingAdapter {
     }
 
     @BindingAdapter(value = "convertDate")
-    static void setDate(TextView textView, String date){
+    public static void setDate(TextView textView,String date){
         textView.setText(FragmentUtils.INSTANCE.convertDateString(date));
     }
 
     @BindingAdapter(value = "timeDifference")
-    static void setDifferenceTime(TextView textView, FlightEntity entity){
+    public static void setDifferenceTime(TextView textView, FlightEntity entity){
         FragmentUtils utils = FragmentUtils.INSTANCE;
         textView.setText(utils.timeDifference(utils.convertDateString(entity.getDepartureDate()),
                 utils.convertDateString(entity.getArrivalDate())));
