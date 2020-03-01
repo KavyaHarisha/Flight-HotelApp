@@ -36,7 +36,6 @@ dependencies {
     final ROOM_VERSION = '2.2.4'
     final RETROFIT_VERSION = '2.4.0'
     final ARCHITECTURE_COMPONENT_VERSION = '1.1.1'
-    final DAGGER_VERSION = '2.24'
     final DAGGER_COMPILER_VERSION = "2.16"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -75,4 +74,6 @@ dependencies {
 
     implementation 'com.android.support:design:23.1.1'
 
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
 }

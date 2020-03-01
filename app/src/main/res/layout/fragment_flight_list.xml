@@ -14,8 +14,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
 
         <ProgressBar
@@ -50,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/loginProgress"
             android:layout_margin="@dimen/common_margin"
-            app:childLayout="@{@layout/flight_row_item}"
+            app:childLayoutItem="@{@layout/flight_row_item}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.flighthotelapplication.R
 import com.flighthotelapplication.data.remote.Resource
 import com.flighthotelapplication.databinding.FragmentFlightListBinding
-import com.flighthotelapplication.view.adapter.FlightListAdapter
 import com.flighthotelapplication.view.base.BaseFragment
 import com.flighthotelapplication.viewmodel.FlightListViewModel
 
@@ -30,8 +28,6 @@ class FlightListFragment : BaseFragment<FlightListViewModel, FragmentFlightListB
         savedInstanceState: Bundle?
     ): View? {
         dataBinding = DataBindingUtil.inflate(inflater, getResourceLayout, container, false)
-        dataBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
-        dataBinding.recyclerView.adapter = FlightListAdapter()
         return dataBinding.root
     }
 

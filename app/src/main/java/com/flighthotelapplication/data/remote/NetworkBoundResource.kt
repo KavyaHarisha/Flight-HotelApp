@@ -70,19 +70,15 @@ protected constructor() {
     private fun getCustomErrorMessage(error: Throwable): String {
 
         return if (error is SocketTimeoutException) {
-            "time our error"
-            //context.getString(R.string.requestTimeOutError)
+            "Time out error"
         } else if (error is MalformedJsonException) {
-            "mal formed json"
-            //context.getString(R.string.responseMalformedJson)
+            "Mal formed json"
         } else if (error is IOException) {
-            "newtwork error"
-            //context.getString(R.string.networkError)
+            "Network error"
         } else if (error is HttpException) {
             error.response().message()
         } else {
-            "unknown error"
-            //context.getString(R.string.unknownError)
+            "Unknown error"
         }
 
     }
@@ -90,11 +86,15 @@ protected constructor() {
     @SuppressLint("StaticFieldLeak")
     @MainThread
     private fun saveResultAndReInit(response: V?) {
-        ThreadUtils.runOnBackgroundThread(Runnable {saveCallResult(response)
-        ThreadUtils.runOnMainThread(Runnable { result.addSource(loadFromDb()) { newData ->
-            if (null != newData)
-                result.value = Resource.success(newData)
-        } })})
+        ThreadUtils.runOnBackgroundThread(Runnable {
+            saveCallResult(response)
+            ThreadUtils.runOnMainThread(Runnable {
+                result.addSource(loadFromDb()) { newData ->
+                    if (null != newData)
+                        result.value = Resource.success(newData)
+                }
+            })
+        })
     }
 
     @WorkerThread

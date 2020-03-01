@@ -1,6 +1,7 @@
 package com.flighthotelapplication.di.builder
 
 import com.flighthotelapplication.view.fragment.FlightListFragment
+import com.flighthotelapplication.view.fragment.HotelsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,4 +9,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuilderModule {
     @ContributesAndroidInjector
     abstract fun contributeFlightListFragment(): FlightListFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeHotelFragment(): HotelsFragment
 }

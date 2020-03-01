@@ -14,6 +14,7 @@ class HotelRepository @Inject constructor(private var hotelDao: HotelDao,
     fun loadHotels():LiveData<Resource<HotelEntity>>{
         return object : NetworkBoundResource<HotelEntity,HotelEntity>(){
             override fun saveCallResult(item: HotelEntity?) {
+                hotelDao.deleteAllData()
                 if(item!=null)hotelDao.saveHotelsList(item)
             }
 

@@ -9,4 +9,6 @@
     <color name="gold">#FFD700</color>
     <color name="orange">#FFFF4B14</color>
     <color name="black">#000000</color>
+    <color name="light_green">#FF0EE617</color>
+    <color name="light_grey_40">#837B7B</color>
 </resources>
