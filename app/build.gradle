@@ -23,6 +23,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    android {
+        testOptions {
+            unitTests.returnDefaultValues = true
+        }
+    }
+
     dataBinding {
         enabled = true
     }
@@ -76,4 +83,14 @@ dependencies {
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.8.0'
+
+    //mockk
+    testImplementation "io.mockk:mockk:1.9.3"
+
+    //Espresso unit test
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    testImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
 }
